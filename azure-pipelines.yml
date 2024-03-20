@@ -10,7 +10,7 @@ variables:
   dotnetSdkVersion: '6.x'
   branchTrimmed: $(split(variables['Build.SourceBranch'], '/')[2])
   variableItself: $(variables['Build.SourceBranch'])
-  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 
 steps:
 
