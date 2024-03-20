@@ -24,6 +24,7 @@ steps:
       echo Full branch: $(fullBranch)
       echo Replace split: ${{ replace(split('refs/heads/main', '/')[2], '-', '_') }}
       echo Replace split more: ${{ replace(split('refs/heads/feature/bla-blah-blah', '/')[2], '-', '_') }}
+      echo Split more: ${{ split('refs/heads/feature/bla-blah-blah', '/')[2] }}
 
 # - task: UseDotNet@2
 #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
