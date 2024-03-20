@@ -9,7 +9,6 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '6.x'
   branchTrimmed: $[split(variables['Build.SourceBranch'], '/')[2]]
-  variableItself: $[variables['Build.SourceBranch']]
   isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
   fullBranch: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
 
@@ -19,11 +18,11 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo Variable itself: $variableItself
       echo Branch trimmed: $branchTrimmed
       echo Build SourceBranch: $(Build.SourceBranch)
       echo Is main: $(isMain)
       echo Full branch: $(fullBranch)
+      echo Replace split: ${{ replace(split('refs/heads/main', '/')[2], '-', '_') }}
 
 # - task: UseDotNet@2
 #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
