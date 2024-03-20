@@ -17,8 +17,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo $(variableItself)
-      echo $(branchTrimmed)
+      echo $variableItself
+      echo $branchTrimmed
 
 - task: Bash@3
   inputs:
