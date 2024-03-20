@@ -12,6 +12,7 @@ variables:
   isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
   fullBranch: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
   splitVariableConst: ${{ split('refs/heads/feature/bla-blah-blah', '/')[2] }}
+  splitVariable: ${{ split(variables['Build.SourceBranch'], '/')[2] }}
   
 
 steps:
@@ -28,6 +29,7 @@ steps:
       echo Replace split more: ${{ replace(split('refs/heads/feature/bla-blah-blah', '/')[2], '-', '_') }}
       echo Split more: ${{ split('refs/heads/feature/bla-blah-blah', '/')[2] }}
       echo Split var const: $(splitVariableConst)
+      echo Split var: $(splitVariable)
 
 # - task: UseDotNet@2
 #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
