@@ -10,6 +10,7 @@ variables:
   dotnetSdkVersion: '6.x'
   branchTrimmed: $(split(variables['Build.SourceBranch'], '/')[2])
   variableItself: $(variables['Build.SourceBranch'])
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')
 
 steps:
 
@@ -20,6 +21,7 @@ steps:
       echo Variable itself: $variableItself
       echo Branch trimmed: $branchTrimmed
       echo Build SourceBranch: $(Build.SourceBranch)
+      echo Is main: $isMain
 
 - task: Bash@3
   inputs:
