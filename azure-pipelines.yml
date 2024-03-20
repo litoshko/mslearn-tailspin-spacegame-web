@@ -1,5 +1,5 @@
-# trigger:
-# - '*'
+trigger:
+- '*'
 
 pool:
   vmImage: ubuntu-latest
@@ -21,7 +21,7 @@ steps:
       echo Variable itself: $variableItself
       echo Branch trimmed: $branchTrimmed
       echo Build SourceBranch: $(Build.SourceBranch)
-      echo Is main: $isMain
+      echo Is main: $(isMain)
 
 - task: Bash@3
   inputs:
