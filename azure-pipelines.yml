@@ -15,12 +15,12 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: echo $(branchTrimmed)
+    script: echo '$(branchTrimmed)'
 
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: echo '$(branchTrimmed)'
+    script: echo $(branchTrimmed)
 
 # - task: UseDotNet@2
 #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
