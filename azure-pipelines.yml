@@ -9,13 +9,16 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '6.x'
   branchTrimmed: $(split(variables['Build.SourceBranch'], '/')[2])
+  variableItself: $(variables['Build.SourceBranch'])
 
 steps:
 
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: echo '$(branchTrimmed)'
+    script: |
+      echo $(variableItself)
+      echo $(branchTrimmed)
 
 - task: Bash@3
   inputs:
