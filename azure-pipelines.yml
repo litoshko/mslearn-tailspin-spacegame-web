@@ -17,9 +17,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo $variableItself
-      echo $branchTrimmed
-      echo $(Build.SourceBranch)
+      echo Variable itself: $variableItself
+      echo Branch trimmed: $branchTrimmed
+      echo Build SourceBranch: $(Build.SourceBranch)
 
 - task: Bash@3
   inputs:
