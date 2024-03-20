@@ -11,6 +11,7 @@ variables:
   branchTrimmed: $[split(variables['Build.SourceBranch'], '/')[2]]
   variableItself: $[variables['Build.SourceBranch']]
   isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  fullBranch: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
 
 steps:
 
@@ -22,11 +23,7 @@ steps:
       echo Branch trimmed: $branchTrimmed
       echo Build SourceBranch: $(Build.SourceBranch)
       echo Is main: $(isMain)
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: echo $(branchTrimmed)
+      echo Full branch: $(fullBranch)
 
 # - task: UseDotNet@2
 #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
