@@ -19,6 +19,7 @@ steps:
     script: |
       echo $variableItself
       echo $branchTrimmed
+      echo $(Build.SourceBranch)
 
 - task: Bash@3
   inputs:
